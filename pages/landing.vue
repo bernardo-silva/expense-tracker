@@ -116,7 +116,8 @@
               <pre data-prefix=">"><code># Follow PocketBase setup (README)</code></pre>
               <pre data-prefix="$"><code>npm run dev</code></pre>
             </div>
-            <a href="https://github.com/bernardo-silva/expense-tracker" target="_blank" rel="noopener noreferrer"
+            <a
+href="https://github.com/bernardo-silva/expense-tracker" target="_blank" rel="noopener noreferrer"
               class="btn btn-primary btn-wide">
               View on GitHub
             </a>
@@ -127,7 +128,8 @@
                 <div class="input border border-base-300">https://yourapp.com</div>
               </div>
               <div class="flex justify-center px-4 py-16 bg-base-200">
-                <img src="https://picsum.photos/seed/nuxpbstarter2/600/400" alt="App Screenshot Placeholder"
+                <img
+src="https://picsum.photos/seed/nuxpbstarter2/600/400" alt="App Screenshot Placeholder"
                   class="rounded shadow-lg">
               </div>
             </div>
@@ -143,14 +145,16 @@
         <p class="text-lg font-semibold">Nuxt + PocketBase Starter<br>
           <span class="text-sm font-normal">Accelerating full-stack development.</span>
         </p>
-        <p class="text-sm">Copyright © 2024 - Made with ❤️ by <a href="https://github.com/bernardo-silva"
+        <p class="text-sm">Copyright © 2024 - Made with ❤️ by <a
+href="https://github.com/bernardo-silva"
             class="link link-hover link-primary">Bernardo Silva</a></p>
       </aside>
       <nav>
         <h6 class="footer-title">Links</h6>
         <div class="grid grid-flow-col gap-4">
           <!-- Link to GitHub Repo -->
-          <a href="https://github.com/bernardo-silva/expense-tracker" target="_blank" rel="noopener noreferrer"
+          <a
+href="https://github.com/bernardo-silva/expense-tracker" target="_blank" rel="noopener noreferrer"
             class="link link-hover">
             GitHub Repo
           </a>

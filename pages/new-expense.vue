@@ -43,17 +43,14 @@ const validateForm = (): boolean => {
 const auth = useAuthStore();
 
 const save = async () => {
-  console.log(form.value.date)
   if (validateForm()) {
-    await ExpensesService.createUserExpense(
-      {
-        user: auth.userData?.id,
-        description: form.value.description,
-        date: form.value.date,
-        amount: (form.value.amount ?? 0) * 100,
-        id: "",
-      }
-    )
+    await ExpensesService.createExpense({
+      creator: auth.userData.id,
+      paid_by: auth.userData.id,
+      description: form.value.description,
+      date: form.value.date,
+      amount: (form.value.amount ?? 0) * 100,
+    })
     navigateTo("/expenses");
   }
 };
@@ -62,18 +59,15 @@ const save = async () => {
 <template>
   <div class="mx-4">
     <!-- Description Field -->
-    <TextInput
-v-model="form.description" label="Description" :placeholder="'Enter your description'" type="text"
+    <TextInput v-model="form.description" label="Description" :placeholder="'Enter your description'" type="text"
       required :error="errors.description" @change="() => (errors.description = undefined)" />
 
     <!-- Amount Field -->
-    <TextInput
-v-model="form.amount" label="Amount" :placeholder="formatMoney(0)" type="number" required
+    <TextInput v-model="form.amount" label="Amount" :placeholder="formatMoney(0)" type="number" required
       :error="errors.amount" @change="() => (errors.amount = undefined)" />
 
     <!-- Date Field -->
-    <TextInput
-v-model="form.date" label="Date" type="date" required :error="errors.date"
+    <TextInput v-model="form.date" label="Date" type="date" required :error="errors.date"
       @change="() => (errors.date = undefined)" />
 
     <button class="btn btn-primary" @click="save">Save</button>

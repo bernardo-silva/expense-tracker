@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ExpensesService } from '~/services/ExpensesService';
-import type { ExpensesRecord } from '~/types/pocketbase-types';
+import type { Expense } from '~/types/types';
 
-const expenses = ref<ExpensesRecord[]>([]);
+const expenses = ref<Expense[]>([]);
 onMounted(async () => {
   expenses.value = await ExpensesService.getUserExpenses()
 
@@ -15,15 +15,6 @@ onMounted(async () => {
       <h1 class="text-3xl font-bold mb-6">Expenses</h1>
       <NuxtLink to="/new-expense" class="btn btn-primary">Add Expense</NuxtLink>
     </div>
-    <ul class="list btn-ghost">
-      <li v-for="expense in expenses" :key="expense.id" class="list-row hover:bg-base-300">
-        <NuxtLink :to="`/expense/${expense.id}`" class="list-col-grow flex flex-col">
-          <p class="text-2xl font-bold"> {{ expense.description }} </p>
-          <p class="text-md text-base-content/70"> {{ formatDate(expense.date ?? expense.created ?? "") }} </p>
-        </NuxtLink>
-        <div class="text-lg font-bold my-auto" :class="expense.amount < 0 ? 'text-success' : 'text-error'">{{
-          formatMoney(expense.amount) }}</div>
-      </li>
-    </ul>
+    <ExpenseList :expenses />
   </div>
 </template>

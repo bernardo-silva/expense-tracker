@@ -8,6 +8,7 @@ export const formatDate = (
     day: "numeric",
   },
 ): string => {
+  console.log(isoDateString);
   const date = new Date(isoDateString);
   if (isNaN(date.getTime())) {
     return "Invalid Date";

@@ -14,7 +14,12 @@ export const useAuthStore = defineStore("auth", {
     isLoggedIn: false,
   }),
   getters: {
-    userData: (state) => (state.isLoggedIn && state.user ? state.user : null),
+    userData: (state): UsersResponse => {
+      if (state.isLoggedIn && state.user) {
+        return state.user;
+      }
+      throw new Error("User data accessed when the user is not logged in.");
+    },
   },
   actions: {
     async init() {

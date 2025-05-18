@@ -15,7 +15,8 @@ const emit = defineEmits<{
 </script>
 <template>
   <legend v-if="label" class="fieldset-label">{{ label }}</legend>
-  <input v-bind="props" v-model="modelValue" :class="['input w-full', { 'input-error': error }]" :placeholder :required
+  <input
+v-bind="props" v-model="modelValue" :class="['input w-full', { 'input-error': error }]" :placeholder :required
     @change="emit('change')">
   <div class="text-error min-h-[1.5rem]">{{ error }}</div>
 </template>
